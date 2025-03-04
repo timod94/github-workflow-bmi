@@ -67,7 +67,11 @@ jobs:
             npm install -g pm2
           fi
 
-          # Starte den Node.js-Server mit pm2
-          pm2 start server.js --name bmi-calculator --no-daemon
+          # Starte den Node.js-Server im Hintergrund mit pm2 (ohne no-daemon)
+          pm2 start server.js --name bmi-calculator
+
+          # pm2-Prozesse speichern, damit sie bei einem Neustart des Servers weiterhin laufen
+          pm2 save
+          pm2 startup  # Konfiguriere pm2, um beim Serverstart automatisch zu starten
 
           EOF
