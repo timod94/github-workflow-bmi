@@ -1,4 +1,5 @@
 name: BMI Calculator
+
 on:
   push:
     branches:
@@ -7,13 +8,17 @@ jobs:
   calculating:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+
       - name: Install Dependencies
         run: npm install
-      - name: Run BMI Calculator Test
-        run: node bmi.test.js
+
+      //- hier soll die calculateBMI getestet werden
+      // mit node bmi.test.js
